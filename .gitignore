@@ -1,1 +1,5 @@
 telegram_bot_docker/.env
+telegram_bot_docker/finanzas_personales.db
+telegram_bot_docker/__pycache__/lib_db.cpython-312.pyc
+telegram_bot_docker/__pycache__/menues.cpython-312.pyc
+telegram_bot_docker/finanzas_personales_mio.sql

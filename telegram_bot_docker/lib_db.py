@@ -3,6 +3,7 @@ from datetime import datetime
 import os.path as path
 
 DB_NAME = "finanzas_personales.db"
+SQL_INICIAL = "finanzas_personales_mio.sql"
 
 
 # Inicializa la base de datos
@@ -10,12 +11,12 @@ def init_db():
 
     # veo si existe el archivo de la db
     if not path.exists(DB_NAME):
-        print(" no existe el archivo de la db, lo creo...")
+        print("No existe el archivo de la db, lo creo...")
         conn = sqlite3.connect(DB_NAME)
         cursor = conn.cursor()
 
         # Leer el archivo SQL
-        with open('finanzas_personales.sql', 'r') as archivo_sql:
+        with open(SQL_INICIAL, 'r') as archivo_sql:
             script_sql = archivo_sql.read()
 
         # Ejecutar el script SQL
@@ -25,7 +26,19 @@ def init_db():
         conn.commit()  
         conn.close()
        
-        
+
+# Función que muestra el contenido de la base de datos
+async def consulta_sql(sql):
+    conn = sqlite3.connect(DB_NAME)
+    cursor = conn.cursor()
+
+    cursor.execute(sql)
+                   
+    resultado = cursor.fetchall()
+    conn.close()
+
+    return resultado
+                
 
 # Función que guarda los mensajes en la base de datos
 def guardar_operacion(id_usuario, fecha,monto,id_subcategoria,id_medio_pago):
@@ -43,12 +56,27 @@ def guardar_operacion(id_usuario, fecha,monto,id_subcategoria,id_medio_pago):
 
     conn.commit()
     conn.close()    
+
+# Función que guarda nueva categoria
+def guardar_nueva_categoria(tipo,descripcion):
+    conn = sqlite3.connect(DB_NAME)
+    cursor = conn.cursor()
+              
+           
+   # Insertar 
+    cursor.execute('''
+        INSERT INTO categorias (tipo, descripcion)
+        VALUES (?, ?)
+    ''', (tipo, descripcion))
+
+    conn.commit()
+    conn.close()        
          
 def actualizar_saldos(id_medio_pago,monto):
     conn = sqlite3.connect(DB_NAME)
     cursor = conn.cursor()
     
-    print (monto)
+   # print (monto)
    # Insertar el mensaje en la tabla
     cursor.execute('''
         UPDATE medios_pago
@@ -59,16 +87,17 @@ def actualizar_saldos(id_medio_pago,monto):
     conn.commit()
     conn.close()    
 
+def actualizar_descripcion_categoria(id,descripcion):
 
-# Función que muestra el contenido de la base de datos
-async def consulta_sql(sql):
     conn = sqlite3.connect(DB_NAME)
-    cursor = conn.cursor()
+    cursor = conn.cursor()              
+    print ("update "+id +" con "+ descripcion)
+   # Insertar 
+    cursor.execute('''
+        UPDATE categorias 
+           SET descripcion = ?
+         WHERE id = ?
+    ''', (descripcion,id))
 
-    cursor.execute(sql)
-                   
-    resultado = cursor.fetchall()
-    conn.close()
-
-    return resultado
-        
+    conn.commit()
+    conn.close()        

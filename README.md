@@ -20,15 +20,26 @@ opciones de otro bot:
 
 ---
 
+menues:
+menu - Menu
+saldos - Saldos
+operaciones - Operaciones
+categorias - Categorias
+subcategorias - Subcategorias
+medios_pago - Medios de Pago
+usurios - Usuarios
+
 operaciones:
 
-    supermercados
+    Supermercados 1
+        franco
         cooperativa
         chango mas
         vea
-        franco
-        coto
-    alimentacion
+        makro
+        la banderita
+        otro
+    Alimentos 2
         verduleria
         carniceria
         polleria
@@ -40,12 +51,7 @@ operaciones:
         pescaderia
         rotiseria
         heladeria
-    educacion
-        escuela
-        ingles
-        fotocopias
-        utiles
-    otros
+    Varios 3
         kiosco
         mercado libre
         regalos
@@ -54,204 +60,62 @@ operaciones:
         conciliacion
         ferreteria
         rifas
-        varios
         recarga SUBE
-        pago tarjeta credito
-    esparcimiento
+    Educacion 4
+        escuela
+        ingles
+        fotocopias
+        utiles
+    Esparcimiento 5
         salidas
         viajes
-    gastos medicos
+        gimnacio
+        futbol
+    Gastos Medicos 6
         farmacia
         visita medico
         analisis
         estudios
         bonos obra social
-    auto
+    Otros 7
         nafta
-        service
-    mascotas:
+        service Auto
         veterinario
-        comida
-    inversiones:
+        comida perro
+    Inversiones: 8
         bullmarket
         brubank
         fci
         plazo fijo
         ganancias
         perdidas
-    transferencia:
+    Transferencias: 9
         entre cuentas
         a terceros
-
-    Ingresos:
+        conciliacion
+    Impuestos y Servicios: 10
+        arba
+        inmobiliario
+        patente
+        edes
+        camuzzi
+        seguro auto
+        seguro casa
+        recarga celular
+        pago tarjeta credito
+    Ingresos: 11
         acreditacion sueldo
         sueldo efectivo
-        sueldo efectivo 2
+        sueldo efectivo Negro
         Alquileres
         SUAF/anses
         Promociones
         inversiones
         venta dolares
         varios
-    impuestos:
-        arba
-        inmobiliario
-        patente
-    servicios:
-        edes
-        camuzzi
-        seguro auto
-        seguro casa
-        recarga celular
-        gimnacio
-        futbol
 
 importe -> Categoria -> Subcategoria -> MEDIO DE PAGO |-> efectivo  
  |-> cuenta DNI  
  |-> bapro  
  |-> mercado pago  
  |-> tarjeta -> cuotas
-
-PANTALLAS:
-
-    ingresa un numero:
-
-        1200.00
-
-            Ingresar categoria (ordenadas de mas usado a menos usado por el usuario)
-             ___________________
-            |     Impuestos     |
-            |    supermercado   |
-            |     educacion     |
-            |       otros       |
-            |        ...        |
-            |      Cancelar     |
-            |___________________|
-
-                    Ingresar subcategoria  (ordenadas de mas usado a menos usado por el usuario)
-                     ___________________
-                    |    Cooperativa    |
-                    |       Franco      |
-                    |     Chango mas    |
-                    |        VEA        |
-                    |        ...        |
-                    |   Nueva operacion |
-                    | Cambiar categoria |
-                    |      Cancelar     |
-                    |___________________|
-
-
-                            ingresar medio de pago (muestra los medios de pago asociados a la subcategoria y al usuario, ordenados por uso)
-                             _____________________
-                            |       Efectivo      |
-                            |        BAPRO        |
-                            |          MP         |
-                            |         ...         |
-                            | Cambiar subcategoria|
-                            |       Cancelar      |
-                            |_____________________|
-
-                                    ingresar datos extras
-                                     ___________________
-                                    |      GUARDAR      |
-                                    |   Cambiar Fecha   |
-                                    |       Volver      |
-                                    |      Cancelar     |
-                                    |___________________|
-
-
-    Opciones
-     ___________________
-    |      Saldos       |
-    |   operaciones     |
-    |  Configuraciones  |
-    |       Salir       |
-    |___________________|
-
-            configuraciones
-             ___________________
-            |    Categorias     |
-            |   subcategorias   |
-            |  Medios de pago   |
-            |     usuarios      |
-            |      Salir        |
-            |___________________|
-
-                    tipos operaciones
-                     ___________________
-                    |    Nuevo tipo     |
-                    |  Modificiar tipo  |
-                    |   Eliminar tipo   |
-                    |      Volver       |
-                    |     Cancelar      |
-                    |___________________|
-
-                            Nuevo tipo:
-                                1 elige descripcion
-                                2 elige categoria
-                                3 elige medios de pago
-
-                    categorias
-                     ___________________
-                    |  Nueva categoria  |
-                    |  Modificiar cat.  |
-                    | Eliminar categoria|
-                    |       Volver      |
-                    |      Cancelar     |
-                    |___________________|
-
-                            Nueva categoria:
-                                1 elige descripcion
-                                2 elige tipo (entrada o salida)
-
-
-                    Medios de pago
-                     ___________________
-                    |    Nuevo Medio    |
-                    | Modificiar Medio  |
-                    |  Eliminar Medio   |
-                    |       Volver      |
-                    |      Cancelar     |
-                    |___________________|
-
-                            nuevo medio de pago:
-                                1 carga descripcion
-                                2 elige tipo (0=efectivo,1=debito,2=credito)
-                                3 elije personas (1 o mas)
-                                4 monto_disponible (si es credito)
-                                5 dia_cierre       (si es credito)
-                                6 dia_pago         (si es credito)
-
-
-
-                    usuarios
-                     ___________________
-                    |   Nuevo usuario   |
-                    | Eliminar usuario  |
-                    |       Volver      |
-                    |      Cancelar     |
-                    |___________________|
-
-                            nueva usuario
-                                1 elige nombre
-
-
-     Saldos
-             ___________________________
-            | Efectivo:         6464,22 |
-            | BAPRO:           64646,58 |
-            | MERCADO PAGO SEBA 9598,33 |
-            | MERCADO PAGO fer  4535,33 |
-            |                  74548,64 |
-            |___________________________|
-            | VISA (12/08)    -90234,23 |
-            |___________________________|
-            | bullmarket        4535,33 |
-            | fci                635,33 |
-            |                   5548,64 |
-            |___________________________|
-            |    Exportar informacion   |
-            |___________________________|
-
-
-    operaciones:

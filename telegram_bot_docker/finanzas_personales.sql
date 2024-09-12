@@ -82,25 +82,6 @@ INSERT INTO subcategorias (descripcion, id_categoria)  VALUES
     ('Cooperativa',3);                          
   
 
--- Crear una tabla para almacenar la relacion entre subcategorias y medios de pago
-
-CREATE TABLE IF NOT EXISTS subcategorias_medios_pago (
-    id_subcategoria INTEGER,
-    id_medio_pago INTEGER,
-    foreign key(id_subcategoria) references subcategorias(id),     
-    foreign key(id_medio_pago) references medios_pago(id)
-);
-    
-INSERT INTO subcategorias_medios_pago (id_subcategoria, id_medio_pago) VALUES
-    (1,1), 
-    (2,2),
-    (2,3),
-    (3,1),
-    (3,2), 
-    (3,3), 
-    (4,1),
-    (4,2), 
-    (4,3);    
 
 
 -- Crear una tabla para almacenar las operaciones
