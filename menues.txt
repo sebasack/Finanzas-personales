@@ -205,7 +205,7 @@ PANTALLAS:
   | |                         |          |        Volver      | 
   | |                         |          |       Cancelar     |   
   | |                         |          |____________________|     
-  | |                         |                                    
+  | |                         |                                                             
   | |                         |       ______________________        
   | |                         -----> |elige la subcategoria |        
   | |                                |----------------------|      ___________________
@@ -300,12 +300,12 @@ PANTALLAS:
          |-----------------|
          | Descripcion     |---> carga descripcion      ________________
          | tipo            |-------------------------> | Tipo de medio  |
-         | saldo           |---> carga saldo           |----------------| 
+         | saldo actual    |---> cambia el saldo       |----------------| 
          | dia cierre      |---> carga dia cierre      | Efectivo       |
          | dia_pago        |---> carga dia pago        | debito         |
-         |_________________|                           | credito        |
-                                                       |________________|
-            
+         | desactivar      |---> desactivo o reactiva  | credito        |
+         | cancelar        |                           |________________|
+         |_________________|
 
 
 
